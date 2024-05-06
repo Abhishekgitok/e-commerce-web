@@ -12,7 +12,7 @@ const Products = () => {
   // Get all products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/api/v1/product/get-product");
+      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/product/get-product");
       setProducts(data.products);
    
     } catch (error) {
@@ -41,7 +41,7 @@ const Products = () => {
               <Link key={p._id} to={`/dashboard/admin/product/${p.slug}`} className="product-link">
                 <div className="product-card">
                   <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                    src={`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />

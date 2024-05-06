@@ -52,7 +52,7 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/product-count");
+      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-count");
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
