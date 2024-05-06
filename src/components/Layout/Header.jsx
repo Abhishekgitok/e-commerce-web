@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
+import { TiShoppingCart } from "react-icons/ti";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -33,8 +34,8 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse justify-content-between mx-5 navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand" href="#">
-              Ecommerce Web
+            <Link to="/" className="navbar-brand  " href="#">
+            <TiShoppingCart className="text-primary  h2"/> <span className="text-xl font-weight-bold">BigBazaar</span>
             </Link>
             <ul className="navbar-nav  mb-2 mb-lg-0 me-4">
               <li className="nav-item">

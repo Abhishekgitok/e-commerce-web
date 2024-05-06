@@ -1,7 +1,9 @@
 /* Homepage.css */
 
-.banner-img {
-  margin-bottom: 20px;
+.home-img {
+  height: 400px;
+  object-fit: cover;
+  /* margin-bottom: 20px; */
 }
 
 .home-page {
