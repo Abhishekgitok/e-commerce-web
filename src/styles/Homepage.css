@@ -1,0 +1,84 @@
+/* Homepage.css */
+
+.banner-img {
+  margin-bottom: 20px;
+}
+
+.home-page {
+  justify-content: center;
+}
+
+
+.filters {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h4 {
+  margin-bottom: 15px;
+}
+
+.filters .ant-checkbox-wrapper {
+  margin-bottom: 10px;
+}
+
+.filters .ant-radio-wrapper {
+  margin-bottom: 5px;
+}
+
+.filters button {
+  margin-top: 20px;
+}
+
+.card {
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.home-card-img {
+ 
+  object-fit: cover;
+  width: 150px;
+  /* height: 150px; */
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 15px;
+}
+.btn{
+  font-size: small;
+}
+
+
+
+
+.loadmore {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.loadmore:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    margin-bottom: 20px;
+  }
+}

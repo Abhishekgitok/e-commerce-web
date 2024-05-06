@@ -1,0 +1,46 @@
+/* Products.css */
+.admin-menu {
+    position: fixed; /* Fix the side menu position */
+    top: 1;
+    bottom: 1;
+    left: 0;
+    width: 358px; 
+   
+    margin-left:10px ;
+    overflow-y: auto; /* Allow scrolling in the side menu */
+   
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .product-card {
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    /* margin: 10px; */
+    padding: 10px;
+  }
+  
+  
+  
+  .card-img-top {
+   
+    width: 150px;
+    /* height: 180px; */
+  
+ 
+  }
+  
+ 
+  
