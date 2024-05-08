@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 // import { useCart } from "../context/cart";
@@ -130,8 +130,8 @@ const HomePage = () => {
     <span className="visually-hidden">Next</span>
   </button>
 </div>
+      {/* banner image end*/}
 
-      {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -146,7 +146,9 @@ const HomePage = () => {
             ))}
           </div>
           {/* price filter */}
+          
           <h4 className="text-center mt-4">Filter By Price</h4>
+
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
@@ -156,6 +158,7 @@ const HomePage = () => {
               ))}
             </Radio.Group>
           </div>
+          {/* reset button  */}
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
