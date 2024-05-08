@@ -10,15 +10,15 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  //initalp details
+  //initalproduct  details
   useEffect(() => {
     if (params?.slug) getProduct();
   }, [params?.slug]);
-  //getProduct
+  //get Single Product
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/product/get-product/${params.slug}`
+        `https://e-commerce-api-three-gules.vercel.app/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -30,7 +30,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/related-product/${pid}/${cid}`
+        `https://e-commerce-api-three-gules.vercel.app/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -42,10 +42,9 @@ const ProductDetails = () => {
       <div className="row container product-details">
         <div className="col-md-6">
           <img
-            src={`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-photo/${product._id}`}
+            src={`https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-photo/${product._id}`}
             className="card-img"
             alt={product.name}
-          
           />
         </div>
         <div className="col-md-6 product-details-info">
@@ -53,13 +52,21 @@ const ProductDetails = () => {
           <hr />
           <h6>Name : {product.name}</h6>
           <h6>Description : {product.description}</h6>
-          <h6>
+          <div className="d-flex gap-4">
+            <h6>
             Price :
-            {product?.price?.toLocaleString("en-US", {
+            {product?.price?.toLocaleString("en-IN", {
               style: "currency",
-              currency: "USD",
+              currency: "INR",
             })}
           </h6>
+          <h6 className="card-title card-price text-decoration-line-through ">
+            {product?.maxprice?.toLocaleString("en-IN", {
+              style: "currency",
+              currency: "INR",
+            })}
+          </h6>
+          </div>
           <h6>Category : {product?.category?.name}</h6>
           <button class="btn btn-secondary ms-1">ADD TO CART</button>
         </div>
@@ -74,31 +81,37 @@ const ProductDetails = () => {
           {relatedProducts?.map((p) => (
             <div className="card m-2" key={p._id}>
               <img
-                src={`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-photo/${p._id}`}
+                src={`https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top"
+                onClick={() => navigate(`/product/${p.slug}`)}
                 alt={p.name}
               />
               <div className="card-body">
                 <div className="card-name-price">
                   <h5 className="card-title">{p.name}</h5>
-                  <h5 className="card-title card-price">
-                    {p.price.toLocaleString("en-US", {
-                      style: "currency",
-                      currency: "USD",
-                    })}
-                  </h5>
+                  <div className="d-flex gap-4">
+                   <h5 className="card-title card-price">
+                    {p.price.toLocaleString("en-IN", {
+                       style: "currency",
+                       currency: "INR"  
+                       })}
+
+                    </h5>
+                    <h5 className="card-title card-price text-decoration-line-through fs-5">
+                    {p.maxprice.toLocaleString("en-IN", {
+                       style: "currency",
+                       currency: "INR"  
+                       })}
+
+                    </h5>
+                   </div>
                 </div>
                 <p className="card-text ">
                   {p.description.substring(0, 60)}...
                 </p>
                 <div className="card-name-price">
+                  
                   <button
-                    className="btn btn-info ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  {/* <button
                   className="btn btn-dark ms-1"
                   onClick={() => {
                     setCart([...cart, p]);
@@ -110,7 +123,7 @@ const ProductDetails = () => {
                   }}
                 >
                   ADD TO CART
-                </button> */}
+                </button>
                 </div>
               </div>
             </div>

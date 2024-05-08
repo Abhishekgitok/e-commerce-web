@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AdminMenu from "../../components/Layout/AdminMenu";
+import AdminMenu from "../../components/AdminMenu";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -12,7 +12,7 @@ const Products = () => {
   // Get all products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/product/get-product");
+      const { data } = await axios.get("https://e-commerce-api-three-gules.vercel.app/api/v1/product/get-product");
       setProducts(data.products);
    
     } catch (error) {
@@ -41,7 +41,7 @@ const Products = () => {
               <Link key={p._id} to={`/dashboard/admin/product/${p.slug}`} className="product-link">
                 <div className="product-card">
                   <img
-                    src={`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-photo/${p._id}`}
+                    src={`https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
-import AdminMenu from "./../../components/Layout/AdminMenu";
+import AdminMenu from "../../components/AdminMenu";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
@@ -25,7 +25,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `https://e-commerce-api-hu0x.onrender.com/api/v1/product/get-product/${params.slug}`);
+        `https://e-commerce-api-three-gules.vercel.app/api/v1/product/get-product/${params.slug}`);
       setName(data.product.name);
       setId(data.product._id);
       setDescription(data.product.description);
@@ -46,7 +46,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/category/get-category");
+      const { data } = await axios.get("https://e-commerce-api-three-gules.vercel.app/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -73,7 +73,7 @@ const UpdateProduct = () => {
       productData.append("quantity", quantity);
       photo && productData.append("photo", photo);
       productData.append("category", category);
-      const { data } = axios.put(`https://e-commerce-api-hu0x.onrender.com/api/v1/product/update-product/${id}`,
+      const { data } = axios.put(`https://e-commerce-api-three-gules.vercel.app/api/v1/product/update-product/${id}`,
         productData
       );
       if (data?.success) {
@@ -97,7 +97,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (!answer) return;
       const { data } = await axios.delete(
-        `https://e-commerce-api-hu0x.onrender.com/api/v1/product/delete-product/${id}`
+        `https://e-commerce-api-three-gules.vercel.app/api/v1/product/delete-product/${id}`
       );
       toast.success("Product Deleted Succfully");
       navigate("/dashboard/admin/products");
@@ -158,7 +158,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-photo/${id}`}
+                      src={`https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"

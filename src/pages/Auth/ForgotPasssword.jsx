@@ -16,7 +16,7 @@ const ForgotPasssword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://e-commerce-api-hu0x.onrender.com/api/v1/auth/forgot-password", {
+      const res = await axios.post("https://e-commerce-api-three-gules.vercel.app/api/v1/auth/forgot-password", {
         email,
         newPassword,
         answer,

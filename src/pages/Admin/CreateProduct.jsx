@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
-import AdminMenu from "./../../components/Layout/AdminMenu";
+import AdminMenu from "../../components/AdminMenu";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
@@ -25,7 +25,7 @@ const CreateProduct = () => {
   // Get all  categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/category/get-category");
+      const { data } = await axios.get("https://e-commerce-api-three-gules.vercel.app/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -54,7 +54,7 @@ const CreateProduct = () => {
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = await axios.post(
-        "https://e-commerce-api-hu0x.onrender.com/api/v1/product/create-product",
+        "https://e-commerce-api-three-gules.vercel.app/api/v1/product/create-product",
         productData
       );
       if (data?.success) {

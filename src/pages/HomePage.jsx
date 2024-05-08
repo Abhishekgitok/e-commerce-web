@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { json, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 // import { useCart } from "../context/cart";
@@ -23,7 +23,7 @@ const HomePage = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/category/get-category");
+      const { data } = await axios.get("https://e-commerce-api-three-gules.vercel.app/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -40,7 +40,7 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/product/get-product");
+      const { data } = await axios.get("https://e-commerce-api-three-gules.vercel.app/api/v1/product/get-product");
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -52,7 +52,7 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-count");
+      const { data } = await axios.get("https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-count");
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -97,7 +97,7 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-filters", {
+      const { data } = await axios.post("https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-filters", {
         checked,
         radio,
       });
@@ -176,7 +176,7 @@ const HomePage = () => {
               <div className="card m-2 " key={p._id}>
                 <div className="">
                 <img
-                  src={`https://e-commerce-api-hu0x.onrender.com/api/v1/product/product-photo/${p._id}`}
+                  src={`https://e-commerce-api-three-gules.vercel.app/api/v1/product/product-photo/${p._id}`}
                   className="home-card-img"
                   alt={p.name}
                   onClick={() => navigate(`/product/${p.slug}`)}
